@@ -1,0 +1,6 @@
+.rec-tile {
+	display: block;
+	border: 1px solid #8e9ace;
+	border-radius: .25rem;
+	background-color: #75c8dd;
+}

@@ -1,0 +1,34 @@
+<template>
+    <lightning-card title="Currency Convertor">
+        <lightning-layout multiple-rows>
+            <lightning-layout-item size="6" padding="around-medium">
+                <lightning-input label="Input Amount(CAD)" onchange={handleInputAmount}></lightning-input>
+            </lightning-layout-item>
+
+            <lightning-layout-item size="6" padding="around-medium">
+                <lightning-combobox name="targetCurrency" label="Select Forex Currency" value={targetCurrency}
+                    options={currencyOptions} onchange={handleTargetCurrency}></lightning-combobox>
+            </lightning-layout-item>
+            <lightning-layout-item size="6" padding="around-medium">
+            Converted Amount
+            <div class="slds-box slds-box-small">
+                {convertedAmount}
+            </div>
+        </lightning-layout-item>
+        </lightning-layout>
+
+        <div slot="footer">
+
+            <lightning-button label="Convert" variant="brand" onclick={handleConvert}></lightning-button>
+            <lightning-button variant="brand" label={clickedButtonLabel} title="show" onclick={handleClick}>
+            </lightning-button>
+
+            <template if:true={showHistory}>
+                <lightning-card title="Search History">
+                    <lightning-datatable key-field="id" columns={historyColumns} data={data} hide-checkbox-column="true"
+                        show-row-number-column="true"></lightning-datatable>
+                </lightning-card>
+            </template>
+        </div>
+    </lightning-card>
+</template>
